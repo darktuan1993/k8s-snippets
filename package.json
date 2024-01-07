@@ -1,0 +1,21 @@
+{
+  "name": "k8s-snippets",
+  "displayName": "k8s-snippets",
+  "description": "support command kubernetes",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "icon": "k8s-logo.png",
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "yaml",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}
