@@ -1,8 +1,9 @@
 {
-  "name": "k8s-snippets",
-  "displayName": "k8s-snippets",
+  "name": "k8s-generate-code",
+  "displayName": "k8s-generate-code",
   "description": "support command kubernetes",
-  "version": "0.0.1",
+  "version": "1.0.2",
+  "publisher": "BachDangTuan",
   "engines": {
     "vscode": "^1.85.0"
   },
