@@ -123,7 +123,7 @@
       "  accessModes:                          # Mode truy cập, Để readWriteOnce là ổ đĩa dưới dạng đọc ghi của 1 node duy nhât, readWriteMany đọc ghi bởi tất cả các node",
       "    - ReadWriteOnce",
       "  hostPath:   ",
-      "    path: \"/mnt/data\"                   # Đường dẫn thư mục bên ngoài",
+      "    path: \"/mnt/data\"                   # Đường dẫn thư mục trên node",
       ""
     ],
     "description": "Create Kubernetes Persistent Volume"
