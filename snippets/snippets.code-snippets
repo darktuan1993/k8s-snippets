@@ -1,5 +1,6 @@
 {
-  "Create Kubernetes Single Pod": {
+  // POD
+  "create kubernetes pod": {
     "prefix": "kpo",
     "body": [
       "apiVersion: v1",
@@ -13,9 +14,9 @@
       "    - name: <name container>                    # Name pod",
       "      image: <image>                            # Name images:version",
       "      resources:                                # Chỉ định về tài nguyên ",
-      "        requests:                              ",
+      "        requests:                               # Chỉ định yêu cầu về tài nguyên",
       "          memory: \"50Mi\"                             ",
-      "        limits:                                 # Giới hạn",
+      "        limits:                                 # Chỉ định giới hạn tài nguyên",
       "          memory: \"128Mi\"",
       "          cpu: \"500m\"",
       "          ",
@@ -28,20 +29,9 @@
       "      hostPath:                                ",
       "        path: /var/log/webapp                   # Đường dẫn thư mục bên ngooài node"
     ],
-    "description": "Create Kubernetes Single Pod"
+    "description": "create kubernetes pod"
   },
-  "Create Kubernetes Namespace": {
-    "prefix": "kname",
-    "body": [
-      "apiVersion: v1",
-      "kind: Namespace",
-      "metadata:                             # Chứa thông tin về metadata của tài nguyên, bao gồm tên và các nhãn (labels) để đặt thông tin mô tả.",
-      "  name: <name of ns>                    # Đây là tên của Namespace được đặt là \"production\". Tên này sẽ được sử dụng để định danh duy nhất Namespace trong cluster.",
-      "  labels:                             # Định nghĩa các nhãn (labels) cho Namespace. có thể được sử dụng để tìm kiếm, lọc, hoặc xác định các tài nguyên có liên quan đến Namespace",
-      "    name: <name of ns>                 "
-    ],
-    "description": "Create Kubernetes Namespace"
-  },
+  // DEPLOYMENT
   "Create Kubernetes Deployment Basic": {
     "prefix": "kdepb",
     "body": [
@@ -107,6 +97,20 @@
     ],
     "description": "Create Kubernetes Deployment and Volume"
   },
+  // CONFIG MAP
+
+  // SECERT
+
+  // JOB
+
+  // StatefulSet 
+
+
+  // DaemonSet 
+
+  // ServiceAccount 
+
+  // VOLUME
   "Create Kubernetes Persistent Volume": {
     "prefix": "kpv",
     "body": [
@@ -145,6 +149,19 @@
       ""
     ],
     "description": "Create Kubernetes Persistent Volume Claim"
-  }
+  },
+  // NAMESPACE
+  "Create Kubernetes Namespace": {
+    "prefix": "kname",
+    "body": [
+      "apiVersion: v1",
+      "kind: Namespace",
+      "metadata:                             # Chứa thông tin về metadata của tài nguyên, bao gồm tên và các nhãn (labels) để đặt thông tin mô tả.",
+      "  name: <name of ns>                    # Đây là tên của Namespace được đặt là \"production\". Tên này sẽ được sử dụng để định danh duy nhất Namespace trong cluster.",
+      "  labels:                             # Định nghĩa các nhãn (labels) cho Namespace. có thể được sử dụng để tìm kiếm, lọc, hoặc xác định các tài nguyên có liên quan đến Namespace",
+      "    name: <name of ns>                 "
+    ],
+    "description": "Create Kubernetes Namespace"
+  },
 }
 // e6tsie3bzu4qux77re4ifcyat5bxpqg3pesygkbjvshzxd6epppq
