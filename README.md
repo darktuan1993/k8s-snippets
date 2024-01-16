@@ -22,3 +22,8 @@ Instructions on how to use them in your own application are linked below.
 | kpv | Tạo 1 persistent volume |
 | kpvc | Tạo 1 persistent volume claim |
 | kname | Tạo namespace |
+
+### Features
+
+- Version 1.0.6
+- Tính năng mới cập nhật snippet cho config kubernetes và giải thích các thông số 
