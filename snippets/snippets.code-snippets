@@ -97,10 +97,98 @@
     ],
     "description": "Create Kubernetes Deployment and Volume"
   },
+  // SERVICE
+  "Create Service Cluster IP": {
+    "prefix": "kscl",
+    "body": [
+      "apiVersion: v1",
+      "kind: Service         ",
+      "metadata:",
+      "  name: front-end-service         # Tên Service",
+      "spec:   ",
+      "  type: ClusterIP                 # Mặc định không điền gì là ClusterIP",
+      "  selector:                       # Selector  ",
+      "    type: front-end               # Match Selector của pod hoặc deployment",
+      "  ports:",
+      "    - targetPort: 80              # Port của container ",
+      "      port: 80                    # Port của pod",
+      ""
+    ],
+    "description": "Create Service Cluster IP"
+  },
+  "Create Service Node Port": {
+    "prefix": "ksnp",
+    "body": [
+      "apiVersion: v1 ",
+      "kind: Service ",
+      "metadata:",
+      "  name: myapp-service ",
+      "spec: ",
+      "  type: NodePort ",
+      "  selector:       ",
+      "    app: myapp ",
+      "    type: front-end ",
+      "  ports: ",
+      "    - targetPort: 80              # Port của container",
+      "      port: 80                    # Port của pod",
+      "      nodePort: 32593             # Port của node",
+      ""
+    ],
+    "description": "Create Service Node Port"
+  },
+  "Create Service Load Balancing": {
+    "prefix": "kslb",
+    "body": [
+      "apiVersion: v1",
+      "kind: Service",
+      "metadata:",
+      "  name: my-service",
+      "spec:",
+      "  type: LoadBalancer",
+      "  ports:",
+      "    - port: 80",
+      "      targetPort: 9376",
+      "      nodePort: 31000         ",
+      "  selector:",
+      "    app: myapp",
+      ""
+    ],
+    "description": "Create Service Load Balancing"
+  },
   // CONFIG MAP
-
+  "Create Config Map": {
+    "prefix": "kcm",
+    "body": [
+      "apiVersion: v1",
+      "kind: ConfigMap",
+      "metadata:",
+      "  name: example-configmap        # Tên của ConfigMap",
+      "  namespace: default             # Namespace mà ConfigMap thuộc về",
+      "data:",
+      "  key1: value1                   # Dữ liệu được lưu trữ dưới dạng cặp key-value",
+      "  key2: value2",
+      "  key3: value3",
+      ""
+    ],
+    "description": "Create Config Map"
+  },
   // SECERT
-
+  "Create Secret": {
+    "prefix": "ksec",
+    "body": [
+      "apiVersion: v1",
+      "kind: Secret",
+      "metadata:",
+      "  name: example-secret          # Tên của Secret",
+      "  namespace: default            # Namespace mà Secret thuộc về",
+      "type: Opaque                    # Loại của Secret (ở đây là Opaque)",
+      "data:",
+      "  username: dXNlcm5hbWU=        # Dữ liệu được mã hóa base64",
+      "  password: cGFzc3dvcmQxMjM=    # Dữ liệu khác, cũng được mã hóa base64",
+      ""
+    ],
+    "description": "Create Secret"
+  },
   // JOB
 
   // StatefulSet
@@ -110,7 +198,6 @@
   // ServiceAccount
 
   // Storage Class
-
   "Create Storage Class": {
     "prefix": "ksc",
     "body": [

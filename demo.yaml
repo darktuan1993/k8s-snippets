@@ -1,13 +1,25 @@
-apiVersion: storage.k8s.io/v1   
-kind: StorageClass                   
+apiVersion: v1
+kind: Pod
 metadata:
-  name: example-nfs                   # Tên storage 
-provisioner: nfs.csi.k8s.io           # Nhà cung cấp dịch vụ drive
-parameters:
-  server: nfs-server.example.com      # Ip hoặc domain của NFS Server
-  path: /share                        # Thư mục share data
-  readOnly: "false"                   # Xác định xem persistent volume (PV) sẽ được mount vào pod với quyền đọc/ghi (readOnly: "false") hay chỉ quyền đọc (readOnly: "true")
-
-
-
-
+  name: <name pod>                              # Name pod
+  labels:
+    name: <match name>                          # Match name container
+spec:
+  containers:
+    - name: <name container>                    # Name pod
+      image: <image>                            # Name images:version
+      resources:                                # Chỉ định về tài nguyên 
+        requests:                               # Chỉ định yêu cầu về tài nguyên
+          memory: "50Mi"                             
+        limits:                                 # Chỉ định giới hạn tài nguyên
+          memory: "128Mi"
+          cpu: "500m"
+          
+      command: ["<command line in container>"]  # Lệnh sử dụng bên trong container
+      volumeMounts:                             # Chỉ định mount vào thư mục nào trong container
+        - name: test-mount                      # Tên của volume cần mount
+          mountPath: /log                       # Đường dẫn thư mục bên trong container 
+  volumes:                                      # Volume
+    - name: test-mount                          # Tên volume
+      hostPath:                                
+        path: /var/log/webapp                   # Đường dẫn thư mục bên ngooài node
