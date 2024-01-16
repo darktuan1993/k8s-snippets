@@ -1,0 +1,13 @@
+apiVersion: storage.k8s.io/v1   
+kind: StorageClass                   
+metadata:
+  name: example-nfs                   # Tên storage 
+provisioner: nfs.csi.k8s.io           # Nhà cung cấp dịch vụ drive
+parameters:
+  server: nfs-server.example.com      # Ip hoặc domain của NFS Server
+  path: /share                        # Thư mục share data
+  readOnly: "false"                   # Xác định xem persistent volume (PV) sẽ được mount vào pod với quyền đọc/ghi (readOnly: "false") hay chỉ quyền đọc (readOnly: "true")
+
+
+
+

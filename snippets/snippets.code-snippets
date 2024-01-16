@@ -103,12 +103,34 @@
 
   // JOB
 
-  // StatefulSet 
+  // StatefulSet
 
+  // DaemonSet
 
-  // DaemonSet 
+  // ServiceAccount
 
-  // ServiceAccount 
+  // Storage Class
+
+  "Create Storage Class": {
+    "prefix": "ksc",
+    "body": [
+      "apiVersion: storage.k8s.io/v1   ",
+      "kind: StorageClass                   ",
+      "metadata:",
+      "  name: example-nfs                   # Tên storage ",
+      "provisioner: nfs.csi.k8s.io           # Nhà cung cấp dịch vụ drive",
+      "parameters:",
+      "  server: nfs-server.example.com      # Ip hoặc domain của NFS Server",
+      "  path: /share                        # Thư mục share data",
+      "  readOnly: \"false\"                   # Xác định xem persistent volume (PV) sẽ được mount vào pod với quyền đọc/ghi (readOnly: \"false\") hay chỉ quyền đọc (readOnly: \"true\")",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "description": "Create Storage Class"
+  },
 
   // VOLUME
   "Create Kubernetes Persistent Volume": {
@@ -162,6 +184,6 @@
       "    name: <name of ns>                 "
     ],
     "description": "Create Kubernetes Namespace"
-  },
+  }
 }
 // e6tsie3bzu4qux77re4ifcyat5bxpqg3pesygkbjvshzxd6epppq

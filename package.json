@@ -2,7 +2,7 @@
   "name": "k8s-generate-code",
   "displayName": "K8s-Generate-Config",
   "description": "Hỗ trợ tạo config kubernetes dành cho người mới",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "BachDangTuan",
   "engines": {
     "vscode": "^1.85.0"
